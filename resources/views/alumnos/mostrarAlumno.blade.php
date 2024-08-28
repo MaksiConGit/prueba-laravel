@@ -27,8 +27,11 @@
             @break
     @endswitch
 
-    @for ($i = 0; $i <= 10; $i++)
-        <x-alert></x-alert>
-    @endfor
+    <x-alert type="facultad">
+        Alumno
+        <x-slot name="alumno">{{ucfirst($alumno)}}</x-slot>
+        <x-slot name="carrera">{{ucfirst($carrera)}}</x-slot>
+    </x-alert>
+
 </body>
 </html>
