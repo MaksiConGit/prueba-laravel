@@ -13,7 +13,7 @@ Route::get('/', HomeController::class);
 Route::get('/inicio', InicioController::class);
 Route::get('/alumnos', [AlumnosController::class, 'index']);
 Route::get('/alumnos/añadir', [AlumnosController::class, 'añadir']);
-Route::get('/alumnos/{alumno}/{carrera}', [AlumnosController::class, 'mostrarAlumno']);
+Route::get('/alumnos/{alumno}/{carrera}', [AlumnosController::class, 'alumnoCarrera']);
 
 //Get
 //Post

@@ -14,8 +14,8 @@ class AlumnosController extends Controller
         return view('alumnos.añadir');
     }
 
-    public function mostrarAlumno($alumno, $carrera){
-        return view('alumnos.mostrarAlumno', compact('alumno', 'carrera'));
+    public function alumnoCarrera($alumno, $carrera){
+        return view('alumnos.alumno-carrera', compact('alumno', 'carrera'));
     }
 
     

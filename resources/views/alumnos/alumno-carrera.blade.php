@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Alumnos</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
+<x-app-layout title="Mostrar Alumno">
     <h1>Soy el alumno {{ucfirst($alumno)}} de la carrera {{ucfirst($carrera)}}</h1>
     @if ($alumno == 'maximiliano')
         <p>Sos Maksi pa</p>
@@ -32,6 +23,4 @@
         <x-slot name="alumno">{{ucfirst($alumno)}}</x-slot>
         <x-slot name="carrera">{{ucfirst($carrera)}}</x-slot>
     </x-alert>
-
-</body>
-</html>
+</x-app-layout>
