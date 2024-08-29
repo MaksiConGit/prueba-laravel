@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::drop('cache');
-        Schema::drop('cache_locks');
-        Schema::drop('failed_jobs');
-        Schema::drop('jobs');
-        Schema::drop('job_batches');
-        Schema::drop('migrations');
-        Schema::drop('password_reset_tokens');
-        Schema::drop('sessions');
+        Schema::create('categoies', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->unique();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('categoies');
     }
 };
