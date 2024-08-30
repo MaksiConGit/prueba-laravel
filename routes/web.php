@@ -1,19 +1,22 @@
 <?php
 
-use App\Http\Controllers\AlumnosController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\InicioController;
+use App\Http\Controllers\alumnoController;
+use App\Http\Controllers\indexController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
-Route::get('/', HomeController::class);
-Route::get('/inicio', InicioController::class);
-Route::get('/alumnos', [AlumnosController::class, 'index']);
-Route::get('/alumnos/añadir', [AlumnosController::class, 'añadir']);
-Route::get('/alumnos/{alumno}', [AlumnosController::class, 'mostrarAlumno']);
+Route::get('/', [indexController::class, 'index']);
+Route::get('/alumno', [alumnoController::class, 'index']);
+Route::get('/alumno/create', [alumnoController::class, 'alumnoCreate']);
+
+Route::get('/alumno/{userID}', [alumnoController::class, 'indexID']);
+
+
+
+
 
 //Get
 //Post
