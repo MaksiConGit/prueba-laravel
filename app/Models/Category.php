@@ -11,6 +11,12 @@ class Category extends Model
     use HasFactory;
 
     protected $table = 'categories';
+    
+    protected function casts(): array{
+        return[
+            'fecha_rara' => 'datetime'
+        ];
+    }
 
     protected function beneficios(): Attribute
     {

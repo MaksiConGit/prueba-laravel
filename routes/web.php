@@ -37,7 +37,7 @@ Route::get('prueba', function(){
     // $category = Category::where('name', 'Prueba')->delete();
  
     // Filtrar por id
-    // $category = Category::find(2);
+    $category = Category::find(1);
 
     // Actualizar filtrar por valor en registro
     // $category = Category::where('name', 'prueba')->first();
@@ -53,6 +53,6 @@ Route::get('prueba', function(){
     // Filtrar por orden y obteniendo campos específicos pero obteniendo un número limitado
     // $category = Category::orderBy('id', 'desc',)->select('id', 'name')->take(2)->get();
 
-    // return $category;
+    return $category->fecha_rara->format('d/m/Y');
 
 });
