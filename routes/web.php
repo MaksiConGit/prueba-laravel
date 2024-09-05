@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlumnosController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InicioController;
 use App\Models\Category;
@@ -15,6 +16,10 @@ Route::get('/inicio', InicioController::class);
 Route::get('/alumnos', [AlumnosController::class, 'index']);
 Route::get('/alumnos/añadir', [AlumnosController::class, 'añadir']);
 Route::get('/alumnos/{alumno}/{carrera}', [AlumnosController::class, 'alumnoCarrera']);
+
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/categories/{category_id}', [CategoryController::class, 'category']);
+
 
 //Get
 //Post
