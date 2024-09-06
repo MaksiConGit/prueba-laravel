@@ -7,14 +7,69 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index(){
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
         $categories = Category::all();
-        return view('categories', compact('categories'));
+        return view('categories.index', compact('categories'));
     }
 
-    public function category($category_id){
-        $category = Category::find($category_id);
-        return view('category', compact('category'));
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('categories.create');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        // return $request;
+        $categories = new Category();
+
+        $categories->name = $request->name;
+        $categories->fecha_rara = $request->fecha_rara;
+        $categories->beneficios = $request->beneficios;
+        $categories->save();
+
+        return redirect('/categories');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        $category = Category::find($id);
+        return view('categories.show', compact('category'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
 }
