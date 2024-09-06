@@ -12,5 +12,10 @@
     <p>Estado: {{$alumno->descripcion}}</p>
     <p>Su correo para recibir notificaciones es: {{$alumno->email}}</p>
     <p>Recuerde su contraseña ("{{$alumno->password}}")</p>
+
+    <a href="/alumno/{{$alumno->id}}/edit">Editar Alumno</a>
+    <form action="/alumno/{{$alumno->id}}" method="POST"> @csrf @method('DELETE')
+        <button type="submit">Eliminar Alumnos</button>
+    </form>
 </body>
 </html>

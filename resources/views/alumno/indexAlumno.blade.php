@@ -8,7 +8,11 @@
 </head>
 <body>
     <h1>Bienvenido al portal Alumnos! </h1>
+    <p>¿Desea crear un alumno nuevo? <a href="alumno/create"> Aqui</a></p> 
+    
+    <p>Lista de Alumnos</p>
     <ul>
+        
     @foreach ($verAlumnos as $alumno)
         <li>
             <a href="/alumno/{{$alumno->id}}">
