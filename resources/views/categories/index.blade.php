@@ -8,4 +8,5 @@
         @endforeach
     </ul>
     <a href="/categories/create">Add a category</a>
+    {{$categories->links()}}
 </x-app-layout>

@@ -19,6 +19,6 @@ class CategorySeeder extends Seeder
         $category->beneficios = 'una prueba :D';
         $category->save();
 
-        Category::factory(10)->create();
+        Category::factory(100)->create();
     }
 }
