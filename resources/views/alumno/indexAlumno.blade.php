@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    @vite('resources/css/app.css')
     <title>Portal Alumnos</title>
+
 </head>
+
 <body>
-    <h1>Bienvenido al portal Alumnos! </h1>
-    <p>¿Desea crear un alumno nuevo? <a href="alumno/create"> Aqui</a></p> 
-    
-    <p>Lista de Alumnos</p>
-    <ul>
-        
-    @foreach ($verAlumnos as $alumno)
-        <li>
-            <a href="/alumno/{{$alumno->id}}">
-                {{$alumno->nombre }}
-            </a>
-        </li>
-    @endforeach
-    </ul>
+    <h1 class="text-4xl font-bold text-sky-900 p-5">Bienvenido al portal Alumnos! </h1>
+    <p class="font-bold text-sky-900 ps-5 pb-5">¿Desea crear un alumno nuevo? <a href="alumno/create"
+            class="text-white bg-sky-900 hover:bg-teal-600 font-medium rounded-lg text-sm px-5 py-2.5 ">Aquí </a></p>
+    <div class="px-5 ">
+        <p class=" bg-sky-900 text-white font-medium px-10">Lista de Alumnos</p>
+        <ul class=" bg-slate-300 text-black font-medium">
+            @foreach ($verAlumnos as $alumno)
+                <li class=" py-1 px-10 border-solid border-2 border-sky-900">
+                    <a href="/alumno/{{ $alumno->id }}">
+                        {{$alumno->id}}) {{ $alumno->nombre }} {{$alumno->apellido}}
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+        {{ $verAlumnos->links() }}
+    </div>
 </body>
+
 </html>

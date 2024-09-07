@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class AlumnoController extends Controller
 {
     public function index(){
-        $alumnos = Alumno::orderBy('id', 'desc')->get();
+        $alumnos = Alumno::orderBy('id', 'asc')->paginate(10);
         return view ('alumno.indexAlumno', [
             'verAlumnos' => $alumnos
         ]);
