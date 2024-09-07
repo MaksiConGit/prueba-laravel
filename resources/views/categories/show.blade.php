@@ -7,5 +7,12 @@
         </ul>
     </div>
     <a href="/categories/{{$category->id}}/edit">Edit category</a><br>
+
+    <form method="POST" action="/categories/{{$category->id}}">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Delete category</button>
+    </form>
+
     <a href="/categories">Go back to Categories</a>
 </x-app-layout>

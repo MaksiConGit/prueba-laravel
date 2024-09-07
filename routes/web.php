@@ -18,14 +18,22 @@ Route::get('/alumnos/añadir', [AlumnosController::class, 'añadir']);
 Route::get('/alumnos/{alumno}/{carrera}', [AlumnosController::class, 'alumnoCarrera']);
 
 
-Route::get('/categories', [CategoryController::class, 'index']);
+//CREATE
 Route::get('/categories/create', [CategoryController::class, 'create']);
-
 Route::post('/categories', [CategoryController::class, 'store']);
+
+// READ
+Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{id}', [CategoryController::class, 'show']);
 
+// UPDATE
 Route::get('/categories/{id}/edit', [CategoryController::class, 'edit']);
 Route::put('/categories/{id}', [CategoryController::class, 'update']);
+
+// DELETE
+Route::delete('categories/{id}', [CategoryController::class, 'destroy']);
+
+
 
 
 //Get
