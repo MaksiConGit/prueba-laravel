@@ -27,12 +27,12 @@ class AlumnoController extends Controller
 
     public function create(Request $request) {
 
-
         $alumno = new Alumno();
 
         $alumno->nombre = $request->nombre;
         $alumno->apellido = $request->apellido;
         $alumno->email = $request->email;
+        $alumno->password = bcrypt($request->password);
 
         $alumno->save();
 
