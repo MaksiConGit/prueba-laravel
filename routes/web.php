@@ -17,10 +17,15 @@ Route::get('/alumnos', [AlumnosController::class, 'index']);
 Route::get('/alumnos/añadir', [AlumnosController::class, 'añadir']);
 Route::get('/alumnos/{alumno}/{carrera}', [AlumnosController::class, 'alumnoCarrera']);
 
+
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/create', [CategoryController::class, 'create']);
+
 Route::post('/categories', [CategoryController::class, 'store']);
 Route::get('/categories/{id}', [CategoryController::class, 'show']);
+
+Route::get('/categories/{id}/edit', [CategoryController::class, 'edit']);
+Route::put('/categories/{id}', [CategoryController::class, 'update']);
 
 
 //Get
