@@ -10,4 +10,9 @@ class Alumno extends Model
     use HasFactory;
 
     protected $table = 'alumnos';
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

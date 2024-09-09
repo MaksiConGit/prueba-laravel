@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Alumno;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\PseudoTypes\LowercaseString;
 
 class AlumnoController extends Controller
 {
@@ -14,8 +15,7 @@ class AlumnoController extends Controller
         ]);
     }
 
-    public function alumnoIndex($nombre,$alumno){
-        $alumno = Alumno::find($alumno);
+    public function alumnoIndex(Alumno $alumno){
         return view('alumno.indexAlumnoID', [
             'alumno' => $alumno
         ]);
@@ -28,19 +28,18 @@ class AlumnoController extends Controller
     public function create(Request $request) {
 
         $alumno = new Alumno();
-
-        $alumno->nombre = $request->nombre;
-        $alumno->apellido = $request->apellido;
+        $alumno->nombre = ucwords(strtolower($request->nombre)) ;
+        $alumno->apellido = ucwords(strtolower($request->apellido));
         $alumno->email = $request->email;
         $alumno->password = bcrypt($request->password);
+        $alumno->slug = str_replace(" ", "_", ucwords(strtolower("$request->nombre $request->apellido")));
 
         $alumno->save();
 
         return redirect(route('alumno.index'));
     }
 
-    public function indexEdit($alumno){
-        $alumno = Alumno::find($alumno);
+    public function indexEdit(Alumno $alumno){
         return view('alumno.editAlumno', [
             'alumno' => $alumno
         ]);
@@ -55,7 +54,7 @@ class AlumnoController extends Controller
 
         $alumno->save();
 
-        return redirect(route('alumno.stats', [$alumno->nombre ,$alumno->id]));
+        return redirect(route('alumno.stats', [$alumno]));
     }
 
     public function delete($alumno){

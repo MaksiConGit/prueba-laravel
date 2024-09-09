@@ -21,6 +21,7 @@ class AlumnoFactory extends Factory
             'apellido'=>fake()->lastName(),
             'email'=>fake()->unique()->safeEmail(),
             'password'=>fake()->password(),
+            'slug'=>fake()->slug(),
             'is_active'=>fake()->numberBetween(0, 1),
             'descripcion'=>fake()->text(100),
             'created_at'=>fake()->dateTime(),

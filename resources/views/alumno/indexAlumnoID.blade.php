@@ -23,7 +23,7 @@
             <a href="{{route('alumno.edit', $alumno)}}">
                 <button class="text-white bg-yellow-600 hover:bg-yellow-800 font-medium rounded-lg text-sm p-2">Editar Alumno✍</button>
             </a>
-            <form action="/alumno/{{$alumno->id}}" method="POST"> @csrf @method('DELETE')
+            <form action="/delete/{{$alumno->id}}" method="POST"> @csrf @method('DELETE')
                 <button type="submit"><button class="text-white bg-red-700 hover:bg-red-900 font-medium rounded-lg text-sm p-2">Eliminar Alumno❌</button></button>
             </form>    
         </div>

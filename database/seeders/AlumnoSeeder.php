@@ -19,10 +19,11 @@ class AlumnoSeeder extends Seeder
         $user->apellido = 'ADMIN';
         $user->email = 'admin@admin.com';
         $user->password = bcrypt('admin');
+        $user->slug = 'admin_ADMIN';
         $user->descripcion = 'es admin';
 
         $user->save();
 
-        Alumno::factory(10)->create();
+        Alumno::factory(100)->create();
     }
 }

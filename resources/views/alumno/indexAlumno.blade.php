@@ -9,7 +9,7 @@
             <ul class=" bg-slate-300 text-black font-medium">
                 @foreach ($verAlumnos as $alumno)
                     <li class=" py-1 px-10 border-solid border-2 border-sky-900">
-                        <a href="{{route('alumno.stats', [$alumno->nombre ,$alumno->id])}}">
+                        <a href="{{route('alumno.stats', [$alumno])}}">
                             {{$alumno->id}}) {{ $alumno->nombre }} {{$alumno->apellido}}
                         </a>
                     </li>

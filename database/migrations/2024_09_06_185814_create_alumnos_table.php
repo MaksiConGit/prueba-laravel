@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('apellido');
             $table->string('email')->unique;
             $table->string('password')->nullable();
+            $table->string('slug')->unique;
             $table->text('descripcion')->nullable();
             $table->timestamps();
         });
