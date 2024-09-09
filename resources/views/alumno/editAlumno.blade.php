@@ -1,8 +1,9 @@
 <x-html-layout>
     <x-slot name="title">Editar Alumno</x-slot>
 
-    <a href="/alumno"> <button class="text-white bg-sky-900 hover:bg-teal-600 font-medium rounded-lg text-sm p-2">Volver
-            atras</button> </a>
+    <a href="{{route('alumno.index')}}"> 
+        <button class="text-white bg-sky-900 hover:bg-teal-600 font-medium rounded-lg text-sm p-2">Volver atras</button> 
+    </a>
     <div class="flex flex-col items-center text-xl font-medium ">
         <div class="bg-sky-900 flex flex-col items-center w-2/4 rounded-xl p-3">
 

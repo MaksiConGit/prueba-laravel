@@ -14,7 +14,7 @@ class AlumnoController extends Controller
         ]);
     }
 
-    public function alumnoIndex($alumno){
+    public function alumnoIndex($nombre,$alumno){
         $alumno = Alumno::find($alumno);
         return view('alumno.indexAlumnoID', [
             'alumno' => $alumno
@@ -36,7 +36,7 @@ class AlumnoController extends Controller
 
         $alumno->save();
 
-        return redirect('/alumno');
+        return redirect(route('alumno.index'));
     }
 
     public function indexEdit($alumno){
@@ -55,14 +55,14 @@ class AlumnoController extends Controller
 
         $alumno->save();
 
-        return redirect("/alumno/{$alumno->id}");
+        return redirect(route('alumno.stats', [$alumno->nombre ,$alumno->id]));
     }
 
     public function delete($alumno){
         $alumno = Alumno::find($alumno);
         $alumno->delete();
 
-        return redirect('/alumno');
+        return redirect(route('alumno.index'));
         
     }
 }
