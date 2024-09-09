@@ -31,17 +31,8 @@ class AlumnoController extends Controller
     }
 
     public function create(Request $request) {
-
-        $alumno = new Alumno();
-
-        $alumno->nombre = ucwords(strtolower($request->nombre)) ;
-        $alumno->apellido = ucwords(strtolower($request->apellido));
-        $alumno->email = $request->email;
-        $alumno->password = bcrypt($request->password);
-        $alumno->slug = str_replace(" ", "_", ucwords(strtolower("$request->nombre $request->apellido")));
-
-        $alumno->save();
-
+        
+        Alumno::create($request->all() + ['slug' => str_replace(" ", "_", ucwords(strtolower("$request->nombre $request->apellido")))]);
         return redirect(route('alumno.index'));
     }
 
@@ -56,14 +47,7 @@ class AlumnoController extends Controller
     public function edit(Request $request, $alumno) {
 
         $alumno = Alumno::find($alumno);
-
-        $alumno->nombre = $request->nombre;
-        $alumno->apellido = $request->apellido;
-        $alumno->email = $request->email;
-        $alumno->slug = str_replace(" ", "_", ucwords(strtolower("$request->nombre $request->apellido")));
-
-
-        $alumno->save();
+        $alumno->update($request->all() + ['slug' => str_replace(" ", "_", ucwords(strtolower("$request->nombre $request->apellido")))]);
 
         return redirect(route('alumno.stats', [$alumno]));
 

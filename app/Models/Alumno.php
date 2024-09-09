@@ -15,4 +15,12 @@ class Alumno extends Model
     {
         return 'slug';
     }
+
+    protected $fillable = [
+        'nombre',
+        'apellido',
+        'email',
+        'password',
+        'slug',
+    ];
 }
