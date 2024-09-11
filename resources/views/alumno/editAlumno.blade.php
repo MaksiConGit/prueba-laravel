@@ -8,13 +8,24 @@
     </a>
 
     <div class="flex flex-col items-center text-xl font-medium ">
-
+        
         <div class="bg-sky-900 flex flex-col items-center w-2/4 rounded-xl p-3">
 
             <h2 class="py-3 text-white">
                 EDITAR LOS DATOS DEL ALUMNO✍
             </h2>
-
+            @if ($errors->any())
+            <div>
+                <h2>Errores:</h2>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>
+                            {{$error}}
+                        </li>
+                    @endforeach     
+                </ul>
+            </div>
+        @endif
             <form class="max-w-sm mx-auto " method="POST" action="/editAlumno/{{ $alumno->id }}">
                 @csrf
                 @method('PUT')
@@ -25,8 +36,8 @@
                     </label>
 
                     <input type="text" name="nombre" id="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 "
-                        value="{{ $alumno->nombre }}"
-                        placeholder="Nombre" required 
+                        value="{{old('nombre', $alumno->nombre)}}"
+                        placeholder="Nombre" 
                     />
 
                 </div>
@@ -37,8 +48,8 @@
                     </label>
 
                     <input type="text" name="apellido" id="apellido" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        value="{{ $alumno->apellido }}"
-                        placeholder="Apellido" required 
+                        value="{{old('apellido', $alumno->apellido)}}"
+                        placeholder="Apellido" 
                     />
 
                 </div>
@@ -49,8 +60,8 @@
                     </label>
                     
                     <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        value="{{ $alumno->email }}"
-                        placeholder="correo@correo.com" required 
+                        value="{{old('email', $alumno->email)}}"
+                        placeholder="correo@correo.com" 
                     />
 
                 </div>
