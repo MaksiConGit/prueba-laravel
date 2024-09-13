@@ -3,10 +3,10 @@
     <ul>
         @foreach ($categories as $category)
         <li>
-            <a href="/categories/{{$category->id}}">{{$category->name}}</a>
+            <a href="{{route('categories.show', $category)}}">{{$category->name}}</a>
         </li>
         @endforeach
     </ul>
-    <a href="/categories/create">Add a category</a>
+    <a href="{{route('categories.create')}}">Add a category</a>
     {{$categories->links()}}
 </x-app-layout>

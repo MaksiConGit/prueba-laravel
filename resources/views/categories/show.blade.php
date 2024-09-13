@@ -4,15 +4,16 @@
             <li>Nombre: {{$category->name}}</li>
             <li>Beneficios: {{$category->beneficios}}</li>
             <li>Fecha rara: {{$category->fecha_rara}}</li>
+            <li>Slug: {{$category->slug}}</li>
         </ul>
     </div>
-    <a href="/categories/{{$category->id}}/edit">Edit category</a><br>
+    <a href="{{route('categories.edit', $category)}}">Edit category</a><br>
 
-    <form method="POST" action="/categories/{{$category->id}}">
+    <form method="POST" action="{{route('categories.destroy', $category)}}">
         @csrf
         @method('DELETE')
         <button type="submit">Delete category</button>
     </form>
 
-    <a href="/categories">Go back to Categories</a>
+    <a href="{{route('categories.index')}}">Go back to Categories</a>
 </x-app-layout>

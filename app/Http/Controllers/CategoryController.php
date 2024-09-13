@@ -12,7 +12,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('id', 'asc')->paginate(10);
+        $categories = Category::orderBy('id', 'desc')->paginate(10);
         return view('categories.index', compact('categories'));
     }
 
@@ -35,51 +35,49 @@ class CategoryController extends Controller
         $categories->name = $request->name;
         $categories->fecha_rara = $request->fecha_rara;
         $categories->beneficios = $request->beneficios;
+        $categories->slug = $request->slug;
         $categories->save();
 
-        return redirect('/categories');
+        return redirect()->route('categories.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Category $category)
     {
-        $category = Category::find($id);
         return view('categories.show', compact('category'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Category $category)
     {
-        $category = Category::find($id);
-        return view('categories.edit', compact('id', 'category'));
+        return view('categories.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Category $category)
     {
-        $category = Category::find($id);
 
         $category->name = $request->name;
         $category->fecha_rara = $request->fecha_rara;
         $category->beneficios = $request->beneficios;
+        $category->slug = $request->slug;
         $category->save();
 
-        return redirect("/categories/$id");
+        return redirect()->route('categories.show', $category);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Category $category)
     {
-        $category = Category::find($id);
         $category->delete();
-        return redirect("/categories");
+        return redirect()->route('categories.index');
     }
 }

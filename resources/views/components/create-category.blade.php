@@ -42,6 +42,12 @@
             <input type="text" name="{{$slot3}}" value="{{$value3}} "id="company" autocomplete="organization" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>
+        <div class="sm:col-span-2">
+          <label for="company" class="block text-sm font-semibold leading-6 text-gray-900">{{ucfirst($slot4)}}</label>
+          <div class="mt-2.5">
+            <input type="text" name="{{$slot4}}" value="{{$value4}} "id="company" autocomplete="organization" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          </div>
+        </div>
         <div class="flex gap-x-4 sm:col-span-2">
           <div class="flex h-6 items-center">
             <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->

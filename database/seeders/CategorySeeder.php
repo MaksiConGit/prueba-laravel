@@ -16,6 +16,7 @@ class CategorySeeder extends Seeder
     {
         $category = new Category();
         $category->name = 'Soy una';
+        $category->slug = 'soy-una-una-prueba';
         $category->beneficios = 'una prueba :D';
         $category->save();
 
