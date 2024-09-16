@@ -29,6 +29,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|min:5|max:10',
+            'beneficios' => 'required',
+            'slug' => 'required|unique:categories',
+            'fecha_rara' => 'required'
+        ]);
         Category::create($request->all());
         return redirect()->route('categories.index');
     }
@@ -54,6 +60,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+        $request->validate([
+            'name' => 'required|min:5|max:10',
+            'beneficios' => 'required',
+            'slug' => "required|unique:categories,slug,{$category->id}",
+            'fecha_rara' => 'required'
+        ]);
         $category->update($request->all());
         return redirect()->route('categories.show', $category);
     }
