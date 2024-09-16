@@ -11,6 +11,13 @@ class Category extends Model
     use HasFactory;
 
     protected $table = 'categories';
+
+    protected $fillable = [
+        'name',
+        'beneficios',
+        'slug',
+        'fecha_rara'
+    ];
     
     protected function casts(): array{
         return[

@@ -29,15 +29,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request;
-        $categories = new Category();
-
-        $categories->name = $request->name;
-        $categories->fecha_rara = $request->fecha_rara;
-        $categories->beneficios = $request->beneficios;
-        $categories->slug = $request->slug;
-        $categories->save();
-
+        Category::create($request->all());
         return redirect()->route('categories.index');
     }
 
@@ -62,13 +54,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-
-        $category->name = $request->name;
-        $category->fecha_rara = $request->fecha_rara;
-        $category->beneficios = $request->beneficios;
-        $category->slug = $request->slug;
-        $category->save();
-
+        $category->update($request->all());
         return redirect()->route('categories.show', $category);
     }
 
