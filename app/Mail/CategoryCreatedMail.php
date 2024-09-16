@@ -40,7 +40,7 @@ class CategoryCreatedMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.category-created',
+            markdown: 'emails.category-created',
         );
     }
 
