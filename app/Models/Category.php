@@ -45,5 +45,9 @@ class Category extends Model
     public function relationtable(){
         return $this->hasOne(RelationTable::class);
     }
+
+    public function manyrelation(){
+        return $this->hasMany(ManyRelation::class);
+    }
     
 }
