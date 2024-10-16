@@ -35,7 +35,7 @@
                 </button>
             </a>
 
-            <form action="/delete/{{$alumno->id}}" method="POST"> 
+            <form action="{{route('alumno.destroy', $alumno)}}" method="POST"> 
                 @csrf 
                 @method('DELETE')
                 <button type="submit" class="text-white bg-red-700 hover:bg-red-900 font-medium rounded-lg text-sm p-2">

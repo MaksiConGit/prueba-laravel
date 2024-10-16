@@ -26,7 +26,7 @@
                 INGRESE LOS DATOS DEL ALUMNO✍
             </h2>
 
-            <form class="max-w-sm mx-auto " method="POST" action="/creacionAlumno">
+            <form class="max-w-sm mx-auto " method="POST" action="{{route('alumno.store')}}">
                 @csrf
                 <div class="mb-5">
 

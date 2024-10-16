@@ -1,7 +1,7 @@
 <x-html-layout>
     <x-slot name="title">Editar Alumno</x-slot>
 
-    <a href="{{route('alumno.stats', $alumno)}}"> 
+    <a href="{{route('alumno.show', $alumno)}}"> 
         <button class="text-white bg-sky-900 hover:bg-teal-600 font-medium rounded-lg text-sm p-2">
             Volver atrás
         </button> 
@@ -26,7 +26,7 @@
                 </ul>
             </div>
         @endif
-            <form class="max-w-sm mx-auto " method="POST" action="/editAlumno/{{ $alumno->id }}">
+            <form class="max-w-sm mx-auto " method="POST" action="{{route('alumno.update', $alumno)}}">
                 @csrf
                 @method('PUT')
                 <div class="mb-5">
