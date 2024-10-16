@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->string('slug')->unique;
             $table->text('descripcion')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

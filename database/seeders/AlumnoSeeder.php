@@ -24,6 +24,6 @@ class AlumnoSeeder extends Seeder
 
         $user->save();
 
-        Alumno::factory(100)->create();
+        Alumno::factory(25)->create();
     }
 }

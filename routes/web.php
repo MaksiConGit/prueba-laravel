@@ -10,3 +10,5 @@ Route::get('/', function () {
 
 Route::resource('alumno', AlumnoController::class)
     ->names('alumno');
+
+Route::get('/archive' , [AlumnoController::class, 'archive'])->name('archive');

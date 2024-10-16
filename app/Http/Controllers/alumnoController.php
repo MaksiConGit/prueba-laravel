@@ -53,4 +53,11 @@ class AlumnoController extends Controller
         return redirect(route('alumno.index'));
         
     }
+
+    public function archive(){
+        $alumnos = Alumno::onlyTrashed()
+            ->orderBy('id', 'asc')->paginate(10);
+
+        return view ('alumno.archive', compact('alumnos'));
+    }
 }
