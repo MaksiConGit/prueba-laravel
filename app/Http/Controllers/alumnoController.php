@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\Alumno\CreateRequest;
 use App\Http\Requests\Alumno\EditRequest;
 use App\Models\Alumno;
