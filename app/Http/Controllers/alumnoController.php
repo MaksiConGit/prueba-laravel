@@ -2,26 +2,55 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\Alumno\CreateRequest;
+use App\Http\Requests\Alumno\EditRequest;
+use App\Models\Alumno;
 
-class alumnoController extends Controller
+class AlumnoController extends Controller
 {
     public function index(){
-        return view('alumno.indexView');
-    }
-    
+        $alumnos = Alumno::orderBy('id', 'asc')->paginate(10);
 
-    public function alumnoCreate(){
-        return view('alumno.alumnoCreate');
+        return view ('alumno.index', compact('alumnos'));
     }
 
-    public function indexID($userID){
-        //Variante compact('userID') #La variable debe llamarse igual en la view y en el parametro#
-        //return view('alumno.indexIDView', compact('userID'));
+    public function show(Alumno $alumno){
+        return view('alumno.show', compact('alumno'));
+    }
 
-        //Variante Array #El nombre puede variar entre la view y el parametro#
-        return view('alumno.indexIDView' , [
-            'user'=> $userID 
+    public function create(){
+        return view('alumno.create');
+    }
+
+    public function store(CreateRequest $request) {
+
+        Alumno::create($request->all() + ['slug' => str_replace(" ", "_", ucwords(strtolower("$request->nombre $request->apellido")))]);
+        return redirect(route('alumno.index'));
+
+    }
+
+    public function edit(Alumno $alumno){
+
+        return view('alumno.edit', compact('alumno'));
+
+    }
+
+    public function update(EditRequest $request, Alumno $alumno) {
+
+        $request->validate([
+            'email'=> "required|min:7|max:255|unique:alumnos,email,{$alumno->id} ",
         ]);
+
+        $alumno->update($request->all() + ['slug' => str_replace(" ", "_", ucwords(strtolower("$request->nombre $request->apellido")))]);
+
+        return redirect(route('alumno.show', [$alumno]));
+
+    }
+
+    public function destroy(Alumno $alumno){        
+        
+        $alumno->delete();
+        return redirect(route('alumno.index'));
+        
     }
 }
