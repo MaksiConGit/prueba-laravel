@@ -1,25 +1,12 @@
 <?php
 
-use App\Http\Controllers\alumnoController;
-use App\Http\Controllers\indexController;
+use App\Http\Controllers\AlumnoController;
+use App\Models\Alumno;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/', [indexController::class, 'index']);
-Route::get('/alumno', [alumnoController::class, 'index']);
-Route::get('/alumno/create', [alumnoController::class, 'alumnoCreate']);
-
-Route::get('/alumno/{userID}', [alumnoController::class, 'indexID']);
-
-
-
-
-
-//Get
-//Post
-//Put
-//Patch
-//Delete
+Route::resource('alumno', AlumnoController::class)
+    ->names('alumno');
